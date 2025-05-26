@@ -1,34 +1,50 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Home from './pages/pages/Home'
+import AcercaDe from './pages/pages/AcercaDe'
+import GaleriaProductos from './pages/pages/GaleriaProductos'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Contactos from './pages/pages/Contactos'
+import NotFound from './pages/pages/NotFound'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [cart, setCart] = useState([]);
+  const [productos, setProductos] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() =>
+  {
+    fetch("./data/data.json")
+    .then(respuesta => respuesta.json())
+    .then(datos => 
+      setTimeout(() => {
+        setProductos(datos)
+        setCargando(false);
+      }, 2000) // Simula un retraso de 2 segundos para la carga;
+    )
+    .catch(error => {
+      console.log("Error al cargar los productos:", error);
+      setCargando(false);
+      setError(true);
+    })
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Gold's Gym</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Bienvenidos <code>src/App.jsx</code> el primer paso para comenzar una nueva vida. 
-      
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Router>
+      <Routes>
+
+        <Route path='/' element={<Home productos={productos} cargando={cargando}/>} />
+        <Route path='/acercade' element={<AcercaDe />}/>
+        <Route path='/productos' element={<GaleriaProductos/>}/>
+        <Route path='contactos' element={<Contactos/>}/>
+        <Route path='*' element={<NotFound/>}/>
+
+      </Routes>
+    </Router>
   )
 }
 
