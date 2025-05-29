@@ -2,11 +2,12 @@ import React from 'react'
 import Header from '../../components/static/Header'
 import Footer from '../../components/static/Footer'
 
-function AcercaDe() {
+function AcercaDe({ cart, eliminarDelCarrito }) {
+  // Recibe cart como prop para mostrar los productos en el carrito
   return (
-    <div className='bg-gray-100 p-8 flex flex-col items-center'>
-        <Header />
-        <h1 className='text-4xl font-bold mb-4'>Acerca de Nosotros</h1>
+    <div>
+        <Header eliminarDelCarrito={eliminarDelCarrito} cartItems={cart}/>
+        <h2 className='text-4xl font-bold mb-4'>Acerca de Nosotros</h2>
         <p className='text-lg text-gray-700 mb-6'>
             En Gold's GYM Equipamientos, nos dedicamos a ofrecer los mejores productos para tu entrenamiento. 
             Nuestra misión es proporcionar equipamiento de alta calidad que te ayude a alcanzar tus objetivos de fitness.

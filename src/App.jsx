@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './style.css'
 import Home from './pages/pages/Home'
 import AcercaDe from './pages/pages/AcercaDe'
 import GaleriaProductos from './pages/pages/GaleriaProductos'
@@ -18,7 +19,7 @@ function App() {
 
   useEffect(() =>
   {
-    fetch("./data/data.json")
+    fetch("/data/data.json")
     .then(respuesta => respuesta.json())
     .then(datos => 
       setTimeout(() => {
@@ -33,14 +34,32 @@ function App() {
     })
   }, []);
 
+  const handleAddToCart = (product) => {
+    const productInCart = cart.find((item) => item.id === product.id);
+    if (productInCart) {
+
+      setCart(cart.map((item) => item.id === product.id 
+      ? {...item,
+        quantity: item.quantity +1}: item));
+      
+    }else{
+      setCart([...cart, {...product,quantity:1}]);
+    }
+  };
+
+  const eliminarDelCarrito = (product) => {
+  setCart(prevCart => prevCart.filter(item => item.id !== product));
+};
+
+
   return (
     <Router>
       <Routes>
 
-        <Route path='/' element={<Home productos={productos} cargando={cargando}/>} />
-        <Route path='/acercade' element={<AcercaDe />}/>
-        <Route path='/productos' element={<GaleriaProductos/>}/>
-        <Route path='contactos' element={<Contactos/>}/>
+        <Route path='/' element={<Home eliminarDelCarrito={eliminarDelCarrito} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando}/>} />
+        <Route path='/acercade' element={<AcercaDe  eliminarDelCarrito={eliminarDelCarrito} cart={cart} />}/>
+        <Route path='/productos' element={<GaleriaProductos eliminarDelCarrito={eliminarDelCarrito} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando}/>}/>
+        <Route path='contactos' element={<Contactos eliminarDelCarrito={eliminarDelCarrito} cart={cart}/>}/>
         <Route path='*' element={<NotFound/>}/>
 
       </Routes>

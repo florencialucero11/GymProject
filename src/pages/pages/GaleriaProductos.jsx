@@ -1,32 +1,25 @@
 import React from 'react'
 import Header from '../../components/static/Header'
+import ProductosList from '../../components/ProductosList'
+import loading from '../../assets/loading.gif'
+import { useState, useEffect } from 'react'
 import Footer from '../../components/static/Footer'
 
-function GaleriaProductos() {
+function GaleriaProductos({cart, productos, cargando, agregarCarrito, eliminarDelCarrito}) {
   return (
-    <div className='bg-gray-100 p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-        <Header />
-        <h1 className='text-4xl font-bold mb-4 text-center'>Galería de Productos</h1>
-        <div className='bg-white p-4 shadow-md rounded-lg'>
-            <img src="/src/assets/producto1.jpg" alt="Producto 1" className='w-full h-48 object-cover mb-2' />
-            <h2 className='text-xl font-semibold'>Producto 1</h2>
-            <p className='text-gray-600'>Descripción breve del producto 1.</p>
-        </div>
-        <div className='bg-white p-4 shadow-md rounded-lg'>
-            <img src="/src/assets/producto2.jpg" alt="Producto 2" className='w-full h-48 object-cover mb-2' />
-            <h2 className='text-xl font-semibold'>Producto 2</h2>
-            <p className='text-gray-600'>Descripción breve del producto 2.</p>
-        </div>
-        <div className='bg-white p-4 shadow-md rounded-lg'>
-            <img src="/src/assets/producto3.jpg" alt="Producto 3" className='w-full h-48 object-cover mb-2' />
-            <h2 className='text-xl font-semibold'>Producto 3</h2>
-            <p className='text-gray-600'>Descripción breve del producto 3.</p>
-        </div>
-        <div className='bg-white p-4 shadow-md rounded-lg'>
-            <img src="/src/assets/producto4.jpg" alt="Producto 4" className='w-full h-48 object-cover mb-2' />
-            <h2 className='text-xl font-semibold'>Producto 4</h2>
-            <p className='text-gray-600'>Descripción breve del producto 4.</p>
-        </div>
+    <div className=''>
+       <Header eliminarDelCarrito={eliminarDelCarrito} cartItems={cart}/>
+        <h2 className='text-center text-wrap font-bold p-4 m-2 text-5xl text-fuchsia-950'  >
+              Nuestra colección de productos
+          </h2>
+        <div className='grid columns-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 m-2 p-2'>
+          
+                  {
+                    cargando ? <img src={loading} alt="Cargando..." /> :
+        
+                   <ProductosList agregarCarrito={agregarCarrito} productos={productos} />
+                  }
+                </div>
         <Footer />
     </div>
   )

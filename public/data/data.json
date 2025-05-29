@@ -4,7 +4,7 @@
       "nombre": "Mancuernas",
       "precio": 8500,
       "stock": 25,
-      "imagen": "https://i.imgur.com/xGym123.jpg",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDSguXxgPkbk8Z7gHspLavSupIqXF6p2by_g&s",
       "categoria": "pesas",
       "cantidad": 0
     },
@@ -33,17 +33,19 @@
       "stock": 20,
       "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzPh4EahkGN_sljU4LNtwjf0MFhTSGe0zb9g&s",
       "categoria": "accesorios"
+      ,"cantidad": 0
     },
     {
-        "id": 4,
+        "id": 5,
       "nombre": "Rodilleras",
       "precio": 50,
       "stock": 20,
       "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzPh4EahkGN_sljU4LNtwjf0MFhTSGe0zb9g&s",
       "categoria": "accesorios" 
+      ,"cantidad": 0
     },
     {
-        "id": 4,
+        "id": 6,
         "nombre": "Guantes",
         "precio": 150,
         "stock": 30,
@@ -52,7 +54,7 @@
         "cantidad": 0
     },
     {
-      "id": 5,
+      "id": 7,
       "nombre": "Colchonetas",
       "precio": 80,
       "stock": 20,
@@ -61,17 +63,17 @@
       "cantidad": 0
     },
     {
-      "id": 6,
+      "id": 8,
       "nombre": "Bicicleta Estatica",
       "precio": 9800,
       "stock": 10,
-      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVn2FyPK8HYYE_FgMwd2zjvpfTe4gfyvKZSA&s",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDSguXxgPkbk8Z7gHspLavSupIqXF6p2by_g&s",
       "categoria": "maquinas",
       "cantidad": 0
     }
     ,
     {
-      "id": 7,
+      "id": 9,
       "nombre": "Eliptica",
       "precio": 1200,
       "stock": 8,
@@ -80,13 +82,12 @@
       "cantidad": 0
     },
     {
-      "id": 8,
+      "id": 10,
       "nombre": "Cinta de Correr",
       "precio": 15000,
       "stock": 5,
-      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1b2g3j4k6J5Zy1a5cX9f3n2Yp4s8m6x5e7w&s",
+      "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzPh4EahkGN_sljU4LNtwjf0MFhTSGe0zb9g&s",
       "categoria": "maquinas",
       "cantidad": 0
     }
   ]
-  
