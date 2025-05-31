@@ -9,8 +9,9 @@ const DetallesProductos = ({productos}) => {
     const {id} = useParams();
     
 
-    const product = productos.find(producto => producto.id === id);
+    const product = productos.find(producto => producto.id == id);
 
+    console.log(product)
 
     return (
 
@@ -24,7 +25,7 @@ const DetallesProductos = ({productos}) => {
             Detalle del producto:
             {id}
         </h1>
-        {product ? (<h2>{product.nombre}</h2>): (<p>Producto no encontrado</p>)}
+        {product ? (<h2> {product.nombre} </h2>): (<p>Producto no encontrado</p>)}
        
     </div>
 )

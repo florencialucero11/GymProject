@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 
 const Productos = ({producto, agregarCarrito}) => {
@@ -18,7 +19,7 @@ const Productos = ({producto, agregarCarrito}) => {
     
     <section className="p-2 m-1 rounded-lg shadow-md bg-violet-200 dark:border-gray-700 ">
     
-        <div className="container text-center p-2">
+        <div className="container text-center p-2 ">
             <div className="bg-violet-200 shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300">
                 <img src={producto.imagen} alt="Imagen del producto" className="w-full h-48 object-cover rounded-md mb-4" />
             
@@ -37,7 +38,9 @@ const Productos = ({producto, agregarCarrito}) => {
                 <button onClick={() => agregarCarrito(producto)} className="bg-rose-900 hover:bg-rose-700 text-white font-bold py-1 px-2 rounded text-center mt-4 w-full">
                      Agregar al carrito
                 </button>
-                
+
+                <Link to={`/productos/${producto.id}` }> Ver más </Link> 
+                 
             </div>
         
         </div>

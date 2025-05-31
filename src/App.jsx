@@ -10,6 +10,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Contactos from './pages/pages/Contactos'
 import NotFound from './pages/pages/NotFound'
 import DetallesProductos from './components/DetallesProductos'
+import Login from './pages/pages/Login'
+import Admin from './pages/pages/Admin'
+import RutasProtegidas from './auth/RutasProtegidas'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,6 +20,7 @@ function App() {
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(false);
+  const [isAuthenticated, setIsAuth] = useState(false);
 
   useEffect(() =>
   {
@@ -67,6 +71,10 @@ function App() {
 
         <Route path='contactos' element={<Contactos eliminarDelCarrito={eliminarDelCarrito} cart={cart}/>}/>
         
+        <Route path='admin' element={<RutasProtegidas isAuthenticated={isAuthenticated}> <Admin /> </RutasProtegidas>} />  
+
+        <Route path='login' element={<Login />} />
+
         <Route path='*' element={<NotFound/>}/>
 
       </Routes>

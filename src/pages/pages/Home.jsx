@@ -22,7 +22,7 @@ function Home({cart, productos, cargando, agregarCarrito, eliminarDelCarrito}) {
           <h2 className="text-5xl font-bold mb-4 p-4 text-center">Productos destacados</h2>
         <div className='grid columns-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
           {
-            cargando ? <img src={loading} alt="Cargando..."  /> :
+            cargando ? <img src={loading} alt="Cargando..." className='p-4 m-4' /> :
 
            <ProductosList agregarCarrito={agregarCarrito} productos={productos} />
           }
