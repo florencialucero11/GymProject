@@ -19,7 +19,7 @@ function Cart({cartItems =[], isOpen, onClose, eliminarDelCarrito}) {
       >
       
        <div className="p-4 flex justify-between items-center border-b">
-          <h2 className="text-xl font-bold text-gray-700 ">Tu carrito</h2>
+          <h2 className="text-xl font-bold text-gray-700 container border-t-slate-700 ">Tu carrito</h2>
           <button onClick={onClose} className="text-gray-500 hover:text-black"> 
              <FaTimes size={20} /> 
           </button>

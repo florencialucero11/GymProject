@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import {  useContext } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -13,55 +13,18 @@ import DetallesProductos from './components/DetallesProductos'
 import Login from './pages/pages/Login'
 import Admin from './pages/pages/Admin'
 import RutasProtegidas from './auth/RutasProtegidas'
+import { CartContex } from './context/CartContext'
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [cart, setCart] = useState([]);
-  const [productos, setProductos] = useState([]);
-  const [cargando, setCargando] = useState(true);
-  const [error, setError] = useState(false);
-  const [isAuthenticated, setIsAuth] = useState(false);
 
-  useEffect(() =>
-  {
-    fetch("/data/data.json")
-    .then(respuesta => respuesta.json())
-    .then(datos => 
-      setTimeout(() => {
-        setProductos(datos)
-        setCargando(false);
-      }, 2000) // Simula un retraso de 2 segundos para la carga;
-    )
-    .catch(error => {
-      console.log("Error al cargar los productos:", error);
-      setCargando(false);
-      setError(true);
-    })
-  }, []);
-
-  const handleAddToCart = (product) => {
-    const productInCart = cart.find((item) => item.id === product.id);
-    if (productInCart) {
-
-      setCart(cart.map((item) => item.id === product.id 
-      ? {...item,
-        quantity: item.quantity +1}: item));
-      
-    }else{
-      setCart([...cart, {...product,quantity:1}]);
-    }
-  };
-
-  const eliminarDelCarrito = (product) => {
-  setCart(prevCart => prevCart.filter(item => item.id !== product));
-};
-
+  const {cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, isAuthenticated} = useContext(CartContex)
 
   return (
     <Router>
       <Routes>
 
-        <Route path='/' element={<Home eliminarDelCarrito={eliminarDelCarrito} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando}/>} />
+        <Route path='/' element={<Home eliminarDelCarrito={eliminarDelCarrito} agregarCarrito={handleAddToCart}
+         cart={cart} productos={productos} cargando={cargando}/>} />
         
         <Route path='/acercade' element={<AcercaDe  eliminarDelCarrito={eliminarDelCarrito} cart={cart} />}/>
         

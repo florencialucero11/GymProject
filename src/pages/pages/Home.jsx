@@ -15,7 +15,7 @@ function Home({cart, productos, cargando, agregarCarrito, eliminarDelCarrito}) {
           <h2 className="text-4xl font-bold mb-4 text-center" >Bienvenido a Gold's GYM Equipamientos</h2>
 
 
-          <p className='md:text-base lg:text-lg md:leading-relaxed text-gray-200 mb-4 mt-4 text-center text-justify '>Ofrecemos una amplia gama de productos para ayudarte a crear el gimnasio de tus sueños en casa. Desde máquinas de cardio hasta pesas y accesorios, tenemos todo lo que necesitas para mantenerte en forma y saludable.
+          <p className='md:text-base lg:text-lg md:leading-relaxed text-gray-200 mb-4 mt-4 text-justify'>Ofrecemos una amplia gama de productos para ayudarte a crear el gimnasio de tus sueños en casa. Desde máquinas de cardio hasta pesas y accesorios, tenemos todo lo que necesitas para mantenerte en forma y saludable.
             Explora nuestra selección de equipos de alta calidad, diseñados para adaptarse a cualquier espacio y nivel de habilidad. Ya sea que estés comenzando tu viaje fitness o buscando mejorar tu rutina, estamos aquí para apoyarte en cada paso del camino.
           </p>
           </div>
