@@ -24,7 +24,7 @@ function Header( { cartItems, eliminarDelCarrito }) {
           <li>
           <button
             onClick={() => setIsCartOpen(true)}
-            className="flex items-center gap-2 bg-violet-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+            className="flex items-center gap-2 bg-violet-500 hover:bg-purple-700 text-white font-bold py-1 px-2 rounded"
           >
             <FiShoppingCart className="text-2xl" />
             

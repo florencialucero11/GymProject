@@ -18,7 +18,7 @@ function Cart({cartItems =[], isOpen, onClose, eliminarDelCarrito}) {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-6 bg-gray-900 text-white rounded-b-lg shadow-lg flex justify-between items-center">
+        <div className="p-6 bg-purple-800 text-white rounded-b-lg shadow-lg flex justify-between items-center">
           <h2 className="text-xl font-bold">Tu carrito</h2>
           <button onClick={onClose} className="text-white hover:text-red-500">
             <FaTimes size={20} />

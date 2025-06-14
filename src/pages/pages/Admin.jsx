@@ -2,7 +2,7 @@ import React from 'react'
 
 function Admin() {
   return (
-     <div className="min-h-screen bg-gray-900 text-white p-6">
+     <div className="min-h-screen bg-fuchsia-900/50 text-white p-6">
       <header className="mb-8 border-b border-gray-700 pb-4">
         <h1 className="text-4xl font-bold">Panel de Control</h1>
         <p className="text-gray-400 mt-1">Bienvenido al panel administrativo</p>
