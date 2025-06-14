@@ -34,7 +34,7 @@ function Header( { cartItems, eliminarDelCarrito }) {
 
         </ul>
       </nav>
-    
+      
     
     
     </div>

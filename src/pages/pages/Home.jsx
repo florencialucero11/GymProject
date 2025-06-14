@@ -13,6 +13,12 @@ function Home({cart, productos, cargando, agregarCarrito, eliminarDelCarrito}) {
          <div className="bg-fuchsia-900/50 text-gray-200">
           <h1 className="text-6xl text-gray-200 font-bold mb-4 text-center">Gold's GYM Equipamientos</h1>
           <h2 className="text-4xl font-bold mb-4 text-center" >Bienvenido a Gold's GYM Equipamientos</h2>
+          <img 
+            src="../img/hero1.jpg" 
+            alt="Imagen del Hero" 
+            className="w-full h-full object-cover brightness-75"
+          />
+    
 
 
           <p className='md:text-base lg:text-lg md:leading-relaxed text-gray-200 mb-4 mt-4 text-justify'>Ofrecemos una amplia gama de productos para ayudarte a crear el gimnasio de tus sueños en casa. Desde máquinas de cardio hasta pesas y accesorios, tenemos todo lo que necesitas para mantenerte en forma y saludable.

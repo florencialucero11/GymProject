@@ -51,16 +51,26 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const eliminarDelCarrito = (product) => {
-        setCart(prevCart => prevCart.filter(item => item.id !== product));
+    const eliminarDelCarrito = (productId) => {
+        setCart(prevCart => prevCart.filter(item => item.id !== productId));
     };
 
 
-
+    const eliminarPorUnidad = (productId) => {
+        setCart(prevCart => prevCart.map(item => {
+            if (item.id === productId){
+                return{...item, quantity: item.quantity -1}
+            }
+            return item;
+        }).filter(item => item.quantity > 0))
+    }
+    const calcularTotal = () => {
+        return cart.reduce((acc, item) => acc + item.precio * item.quantity, 0);
+    };  
 
 
     return (
-        <CartContex.Provider value={{cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, isAuthenticated }}>
+        <CartContex.Provider value={{cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, eliminarPorUnidad, isAuthenticated, calcularTotal }}>
             {children}
         </CartContex.Provider>
     )

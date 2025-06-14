@@ -26,7 +26,7 @@ const Productos = ({producto, agregarCarrito}) => {
             
                 <h3 className="text-xl font-semibold">{producto.nombre}</h3>
                 <p className='text-gray-600'>${producto.precio}</p>
-                <p className="text-gray-600">{producto.stock}</p>
+                
             
 
                 <div className='mt-4  p-2 flex items-center justify-between'>
