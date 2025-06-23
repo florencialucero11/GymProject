@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { CartContex } from '../context/CartContext';
+import { CartContext } from '../context/CartContext';
 import { FaTimes } from "react-icons/fa";
 import { FaTrash } from 'react-icons/fa';
 
@@ -7,14 +7,14 @@ import { FaTrash } from 'react-icons/fa';
  
 
 
-function Cart({cartItems =[], isOpen, onClose, eliminarDelCarrito}) {
-  const {cart, handleAddToCart, eliminarPorUnidad, calcularTotal } = useContext(CartContex);
+function Cart({ isOpen, onClose}) {
+  const {cart, handleAddToCart, eliminarPorUnidad, calcularTotal, eliminarDelCarrito } = useContext(CartContext);
 
 
   return (
     <>
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform transition-transform duration-300 z-40 ${
+        className={`fixed top-0 right-0 h-full w-80 bg-white shadow-lg transform transition-transform duration-300 z-[999] ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

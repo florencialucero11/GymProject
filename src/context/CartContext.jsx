@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
-import Productos from '../components/Productos';
+
 /* CartProvider es nuestra "Cajita de herramientas, donde vamos a exportar todas las funciones que 
 hicimos en App para que quede el código mas limpio
 CartContex la variable a la que vamos a poder llamar para usar esas herramientas
@@ -9,10 +9,10 @@ El armado de contexto SIEMPRE son las mismas líneas, siempre la misma estructur
 */
 
 
-export const CartContex = createContext()
+export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
-    /* Aca vamos a retornar es el provider que es el cartcontext */
+    
 
     const [cart, setCart] = useState([]);
     const [productos, setProductos] = useState([]);
@@ -70,9 +70,10 @@ export const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContex.Provider value={{cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, eliminarPorUnidad, isAuthenticated, calcularTotal }}>
+        <CartContext.Provider value={
+            {cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, eliminarPorUnidad, isAuthenticated , setIsAuth, calcularTotal }}>
             {children}
-        </CartContex.Provider>
+        </CartContext.Provider>
     )
 }
  

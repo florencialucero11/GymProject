@@ -12,36 +12,35 @@ import NotFound from './pages/pages/NotFound'
 import DetallesProductos from './components/DetallesProductos'
 import Login from './pages/pages/Login'
 import Admin from './pages/pages/Admin'
-import RutasProtegidas from './auth/RutasProtegidas'
-import { CartContex } from './context/CartContext'
+import RutaProtegida from './auth/RutasProtegidas'
+import { CartContext } from './context/CartContext'
 
 function App() {
 
-  const {cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, isAuthenticated} = useContext(CartContex)
+  const {cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, isAuthenticated} = useContext(CartContext)
 
   return (
-    <Router>
+    
       <Routes>
 
-        <Route path='/' element={<Home eliminarDelCarrito={eliminarDelCarrito} agregarCarrito={handleAddToCart}
-         cart={cart} productos={productos} cargando={cargando}/>} />
+        <Route path='/' element={<Home />} />
         
-        <Route path='/acercade' element={<AcercaDe  eliminarDelCarrito={eliminarDelCarrito} cart={cart} />}/>
+        <Route path='/acercade' element={<AcercaDe  />}/>
         
-        <Route path='/productos' element={<GaleriaProductos eliminarDelCarrito={eliminarDelCarrito} agregarCarrito={handleAddToCart} cart={cart} productos={productos} cargando={cargando}/>}/>
+        <Route path='/productos' element={<GaleriaProductos />}/>
         
         <Route path='/productos/:id' element={<DetallesProductos productos={productos}/>}/>
 
-        <Route path='contactos' element={<Contactos eliminarDelCarrito={eliminarDelCarrito} cart={cart}/>}/>
+        <Route path='contactos' element={<Contactos />}/>
         
-        <Route path='admin' element={<RutasProtegidas isAuthenticated={isAuthenticated}> <Admin /> </RutasProtegidas>} />  
+        <Route path='/admin' element={<RutaProtegida isAuthenticated={isAuthenticated}> <Admin /> </RutaProtegida>} />  
 
-        <Route path='login' element={<Login />} />
+        <Route path='/login' element={<Login />} />
 
         <Route path='*' element={<NotFound/>}/>
 
       </Routes>
-    </Router>
+    
   )
 }
 
