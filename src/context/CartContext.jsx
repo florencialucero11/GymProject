@@ -14,7 +14,14 @@ export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
     
 
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem("cart");
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
+
+
+
+
     const [productos, setProductos] = useState([]);
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(false);
@@ -34,22 +41,25 @@ export const CartProvider = ({ children }) => {
                 setCargando(false);
                 setError(true);
             })
+            .finally(() => {
+                localStorage.setItem("cart", JSON.stringify(cart));
+            });
     }, []);
 
-    const handleAddToCart = (product) => {
-        const productInCart = cart.find((item) => item.id === product.id);
-        if (productInCart) {
+    const handleAddToCart = (product, cantidad = 1) => {
+    const productInCart = cart.find((item) => item.id === product.id);
 
-            setCart(cart.map((item) => item.id === product.id
-                ? {
-                    ...item,
-                    quantity: item.quantity + 1
-                } : item));
-
-        } else {
-            setCart([...cart, { ...product, quantity: 1 }]);
-        }
+    if (productInCart) {
+        setCart(cart.map((item) =>
+        item.id === product.id
+            ? { ...item, quantity: item.quantity + cantidad }
+            : item
+        ));
+    } else {
+        setCart([...cart, { ...product, quantity: cantidad }]);
+    }
     };
+
 
     const eliminarDelCarrito = (productId) => {
         setCart(prevCart => prevCart.filter(item => item.id !== productId));
@@ -68,10 +78,15 @@ export const CartProvider = ({ children }) => {
         return cart.reduce((acc, item) => acc + item.precio * item.quantity, 0);
     };  
 
+    const vaciarCarrito = () => {
+        setCart([]);
+        localStorage.removeItem("cart");
+    };
+
 
     return (
         <CartContext.Provider value={
-            {cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, eliminarPorUnidad, isAuthenticated , setIsAuth, calcularTotal }}>
+            {cart, productos, cargando, error, handleAddToCart, eliminarDelCarrito, eliminarPorUnidad, vaciarCarrito ,isAuthenticated , setIsAuth, calcularTotal }}>
             {children}
         </CartContext.Provider>
     )

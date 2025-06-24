@@ -4,6 +4,7 @@ import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 // Importa el icono de carrito de 
 import Cart from '../Cart'; 
 import { useState, UseContext } from 'react';
+import logo from '../../assets/logo.jpg'; // Importa el logo 
 
 
 
@@ -26,7 +27,7 @@ function Header() {
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
           
           <Link to="/" className="text-2xl font-bold text-white tracking-wide hover:text-violet-300 transition">
-            Gold's GYM
+            <img src={logo} alt="Logo" className="h-20 w-auto rounded-full shadow-lg ring-2 ring-violet-600 hover:scale-105 transition-transform duration-300 " />
           </Link>
 
 

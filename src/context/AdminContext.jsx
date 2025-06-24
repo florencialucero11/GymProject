@@ -6,7 +6,7 @@ export const AdminContext = createContext()
 
 export const AdminProvider = ({ children }) => {
     const [productos, setProductos] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [cargando, setCargando] = useState(true);
     const [open, setOpen] = useState(false)
     const [seleccionado, setSeleccionado] = useState(null)
     const [openEditor, setOpenEditor] = useState(false)
@@ -19,13 +19,13 @@ export const AdminProvider = ({ children }) => {
             .then((data) => {
                 setTimeout(() => {
                     setProductos(data);
-                    setLoading(false);
+                    setCargando(false);
                 }, 2000);
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);
                 setError(true);
-                setLoading(false);
+                setCargando(false);
             });
     }, []);
 
@@ -66,7 +66,7 @@ export const AdminProvider = ({ children }) => {
         }
     }
 
-    const actulizarProducto = async (producto) => {
+    const actualizarProducto = async (producto) => {
         try {
             const respuesta = await fetch(`${apiUrl}/${producto.id}`,
                 {
@@ -112,7 +112,7 @@ export const AdminProvider = ({ children }) => {
     return (
         <AdminContext.Provider value={{
             productos,
-            loading,
+            cargando,
             open,
             setOpen,
             openEditor,
@@ -120,7 +120,7 @@ export const AdminProvider = ({ children }) => {
             seleccionado,
             setSeleccionado,
             agregarProducto,
-            actulizarProducto,
+            actualizarProducto,
             eliminarProducto,
         }}>
             {children}

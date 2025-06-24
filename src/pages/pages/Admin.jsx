@@ -1,48 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import FormularioProducto from '../../components/static/FormularioProducto';
+import React, { useState, useEffect, useContext } from "react";
+import FormularioProducto from "../../components/admin/FormularioProducto";
+import FormularioEdicion from "../../components/admin/FormularioEdicion";
+import { CartContext } from "../../context/CartContext";
+import { AdminContext } from "../../context/AdminContext";
+import { useNavigate } from "react-router-dom";
 
-function Admin() {
-  const [productos, setProductos] = useState([]);
-  const [form, setForm] = useState({ id: null, nombre: '', precio: '', descripcion: '' });
-  const [cargando, setCargando] = useState(true);
-  const [open, setOpen] = useState(false);
-  const [error, setError] = useState(false);
+const Admin = () => {
 
-  useEffect(() => {
-    fetch('data/data.json')
-      .then((response) => response.json())
-      .then((data) => {
-        setProductos(data);
-        setCargando(false);
-      })
-      .catch((error) => {
-        console.error('Error al cargar los datos:', error);
-        setError(true);
-        setCargando(false);
-      });
-  }, []);
+    const { setIsAuth } = useContext(CartContext)
 
-  const agregarProducto = async () => {
-    try {
-      const respuesta = await fetch('https://68556b276a6ef0ed66326e0d.mockapi.io/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
-      });
+    const {
+        productos,
+        cargando,
+        error,
+        open,
+        setOpen,
+        openEditor,
+        setOpenEditor,
+        seleccionado,
+        setSeleccionado,
+        agregarProducto,
+        actualizarProducto,
+        eliminarProducto, 
+    } = useContext(AdminContext)
 
-      if (!respuesta.ok) {
-        throw new Error('Error al agregar el producto');
-      }
-
-      const nuevoProducto = await respuesta.json();
-      setProductos([...productos, nuevoProducto]);
-      setOpen(false);
-    } catch (error) {
-      console.error('Error al agregar el producto:', error);
-    }
-  };
+    const navigate = useNavigate()
+   
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-violet-800 to-indigo-900 text-white px-6 py-10">
@@ -68,14 +51,17 @@ function Admin() {
                 key={producto.id}
                 className="bg-white/10 rounded-xl shadow-lg p-4 backdrop-blur-md flex flex-col items-center"
               >
-                <img src={producto.img} alt={producto.nombre} className="w-32 h-32 object-contain mb-4" />
+                <img src={producto.imagen} alt={producto.nombre} className="w-32 h-32 object-contain mb-4" />
                 <h2 className="text-xl font-semibold text-purple-200">{producto.nombre}</h2>
                 <p className="text-sm text-violet-300">${producto.precio}</p>
                 <div className="mt-4 flex gap-2">
-                  <button className="px-4 py-1 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm">
+                  <button  onClick={() => {
+                                        setOpenEditor(true)
+                                        setSeleccionado(producto)
+                                    }} className="px-4 py-1 bg-indigo-500 hover:bg-indigo-600 rounded-lg text-sm">
                     Editar
                   </button>
-                  <button className="px-4 py-1 bg-red-500 hover:bg-red-600 rounded-lg text-sm">
+                  <button onClick={() => eliminarProducto(producto.id)} className="px-4 py-1 bg-red-500 hover:bg-red-600 rounded-lg text-sm">
                     Eliminar
                   </button>
                 </div>
@@ -93,7 +79,8 @@ function Admin() {
           </button>
         </div>
 
-        {open && <FormularioProducto />}
+         {open && (<FormularioProducto onAgregar={agregarProducto} />)}
+          {openEditor && (<FormularioEdicion productoSeleccionado={seleccionado} onActualizar={actualizarProducto} />)}
 
         {error && (
           <p className="text-red-400 mt-4 text-center font-semibold">

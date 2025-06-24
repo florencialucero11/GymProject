@@ -8,7 +8,7 @@ import { FaTrash } from 'react-icons/fa';
 
 
 function Cart({ isOpen, onClose}) {
-  const {cart, handleAddToCart, eliminarPorUnidad, calcularTotal, eliminarDelCarrito } = useContext(CartContext);
+  const {cart, handleAddToCart, eliminarPorUnidad, calcularTotal, eliminarDelCarrito, vaciarCarrito } = useContext(CartContext);
 
 
   return (
@@ -77,6 +77,14 @@ function Cart({ isOpen, onClose}) {
               onClick={() => {
                 alert("¡Gracias por tu compra! 🛍️");
                 onClose(); // Cerrás el carrito
+                
+                vaciarCarrito();
+                Swal.fire({
+                  icon: 'success',
+                  title: '¡Compra finalizada!',
+                  text: 'Gracias por tu compra.',
+                  confirmButtonColor: '#6366f1'
+                });
               }}
               className="bg-purple-800 hover:bg-violet-700 text-white font-semibold py-2 px-6 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl"
             >

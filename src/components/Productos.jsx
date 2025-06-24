@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import Swal from 'sweetalert2';
+
 
 const Productos = ({ producto }) => {
   const { handleAddToCart } = useContext(CartContext);
-  const [cantidad, setCantidad] = useState(1);
+  const [cantidad, setCantidad] = useState(0);
 
   const increase = () => setCantidad((prev) => (prev < producto.stock ? prev + 1 : prev));
   const decrease = () => setCantidad((prev) => (prev > 1 ? prev - 1 : 1));
@@ -23,10 +25,10 @@ const Productos = ({ producto }) => {
       <div className="flex-1 space-y-2">
         <h3 className="text-xl font-semibold text-violet-100">{producto.nombre}</h3>
         <p className="text-violet-300 font-semibold text-lg">${producto.precio}</p>
-        <p className="text-sm text-slate-200">{producto.descripcion}</p>
+        {/** <p className="text-sm text-slate-200">{producto.descripcion}</p> **/}
       </div>
 
-      
+      {/* Controles */}
       <div className="mt-4">
         <div className="flex items-center justify-between mb-3">
           <button
@@ -35,7 +37,7 @@ const Productos = ({ producto }) => {
           >
             -
           </button>
-          <span className="text-lg font-medium text-violet-100">{cantidad}</span>
+          <span className="text-lg font-medium text-violet-100">{cantidad}</span> 
           <button
             onClick={increase}
             className="bg-purple-700 hover:bg-purple-800 px-3 py-1 text-white rounded-md font-bold"
@@ -43,13 +45,33 @@ const Productos = ({ producto }) => {
             +
           </button>
         </div>
+<button
+  onClick={() => {
+    handleAddToCart(producto, cantidad);
+    setCantidad(0); 
+    Swal.fire({
+      toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: 'Agregado al carrito',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    customClass: {
+    popup: 'text-sm px-4 py-2'
+   } })
+  }}
+  
+  disabled={cantidad === 0}
+  className={`w-full py-2 rounded-md text-white font-semibold transition ${
+    cantidad === 0
+      ? 'bg-purple-500 '
+      : 'bg-fuchsia-700 hover:bg-fuchsia-800'
+  }`}
+>
+  Agregar al carrito
+</button>
 
-        <button
-          onClick={() => handleAddToCart(producto)}
-          className="w-full bg-fuchsia-700 hover:bg-fuchsia-800 py-2 rounded-md text-white font-semibold transition"
-        >
-          Agregar al carrito
-        </button>
 
         <Link
           to={`/productos/${producto.id}`}
