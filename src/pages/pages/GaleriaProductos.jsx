@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../../components/static/Header';
 import ProductosList from '../../components/ProductosList';
 import loading from '../../assets/loading.gif';
 import Footer from '../../components/static/Footer';
 import { CartContext } from '../../context/CartContext';
 
-function GaleriaProductos({ cart, productos, cargando, agregarCarrito, eliminarDelCarrito }) {
+function GaleriaProductos() {
+  const { cargando } = useContext(CartContext);
+
   return (
     <>
-      <Header eliminarDelCarrito={eliminarDelCarrito} cartItems={cart} />
+      <Header />
 
       <main className="min-h-screen bg-gradient-to-b from-violet-950 via-purple-900 to-indigo-900 text-white py-10 px-6">
         <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-10 text-violet-200">
@@ -20,8 +22,8 @@ function GaleriaProductos({ cart, productos, cargando, agregarCarrito, eliminarD
             <img src={loading} alt="Cargando..." className="w-16 h-16" />
           </div>
         ) : (
-          <section className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            <ProductosList agregarCarrito={agregarCarrito} productos={productos} />
+          <section className="max-w-6xl mx-auto">
+            <ProductosList />
           </section>
         )}
       </main>
@@ -32,4 +34,3 @@ function GaleriaProductos({ cart, productos, cargando, agregarCarrito, eliminarD
 }
 
 export default GaleriaProductos;
-
