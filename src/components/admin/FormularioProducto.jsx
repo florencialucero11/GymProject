@@ -60,7 +60,7 @@ const FormularioProducto = ({onAgregar}) => {
             className={`w-full px-4 py-2 rounded-md border ${
             error.precio ? 'border-red-500' : 'border-violet-500'
             } bg-transparent focus:outline-none focus:ring-2 focus:ring-violet-400 transition`}
-            placeholder="Precio en USD"
+            placeholder="Precio en Pesos"
             min="0"
             step="0.01"
         />
