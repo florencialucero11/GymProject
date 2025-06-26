@@ -25,7 +25,18 @@ const Admin = () => {
     } = useContext(AdminContext)
 
     const navigate = useNavigate()
-   
+
+    const [busqueda, setBusqueda] = useState("");
+    const [productosFiltrados, setProductosFiltrados] = useState(productos);
+
+    useEffect(() => {
+      const resultado = productos.filter((producto) =>
+        producto.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+        producto.categoria ?.toLowerCase().includes(busqueda.toLowerCase())
+      );
+      setProductosFiltrados(resultado);
+    }, [busqueda, productos]);
+    
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-violet-800 to-indigo-900 text-white px-6 py-10">
@@ -42,11 +53,21 @@ const Admin = () => {
           Administración de Productos
         </h1>
 
+        <div className="mb-8 max-w-md mx-auto">
+          <input
+            type="text"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+            placeholder="Buscar por nombre o categoría..."
+            className="w-full px-4 py-2 rounded-lg border border-violet-400 bg-white/10 text-white placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-violet-500"
+          />
+        </div>
+
         {cargando ? (
           <p className="text-center text-slate-300">Cargando...</p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {productos.map((producto) => (
+            {productosFiltrados.map((producto) => (
               <div
                 key={producto.id}
                 className="bg-white/10 rounded-xl shadow-lg p-4 backdrop-blur-md flex flex-col items-center"

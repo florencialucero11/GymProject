@@ -18,7 +18,7 @@ function Contactos() {
 
         {/* Logo */}
         <img
-          src="/src/assets/logo.png"
+          src="/src/assets/logo.jpg"
           alt="Logo de Gold's GYM"
           className="w-28 h-28 mb-8 shadow-md rounded-full"
         />

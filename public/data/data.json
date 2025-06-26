@@ -1,102 +1,190 @@
 [
   {
-    "id": 1,
     "nombre": "Mancuernas",
-    "precio": 8500,
-    "stock": 25,
+    "precio": 8000,
+    "descripcion": "Mancuernas de acero fundido con recubrimiento antideslizante, ideales para entrenamientos de fuerza y tonificación.",
     "imagen": "/img/mancuernas.jpg",
-    "categoria": "pesas",
-    "cantidad": 0,
-    "descripcion": "Mancuernas de alta resistencia con agarre antideslizante. Ideales para entrenamientos de fuerza en casa o gimnasio."
+    "id": "1"
   },
   {
-    "id": 2,
-    "nombre": "Barra Olímpica",
-    "precio": 16000,
-    "stock": 12,
-    "imagen": "/img/barra.jpg",
-    "categoria": "pesas",
-    "cantidad": 0,
-    "descripcion": "Barra olímpica profesional de acero inoxidable. Compatible con discos de 50 mm. Longitud 2.20 m."
+    "nombre": "Discos Olímpicos",
+    "precio": 60000,
+    "descripcion": "Discos olímpicos de caucho con anillo de acero, perfectos para entrenamientos de alta intensidad y levantamiento pesado.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750804529/discos_ipctad.jpg",
+    "id": "2",
+    "stock": "2",
+    "categoria": "pesas"
   },
   {
-    "id": 3,
-    "nombre": "Disco de Pesas",
-    "precio": 100,
-    "stock": 15,
-    "imagen": "/img/discos.jpg",
-    "categoria": "pesas",
-    "cantidad": 0,
-    "descripcion": "Discos de hierro fundido recubiertos. Perfectos para barras olímpicas o convencionales."
+    "nombre": "Bandas elásticas",
+    "precio": 900,
+    "descripcion": "Set de bandas elásticas con diferentes niveles de resistencia para ejercicios de tonificación, movilidad y rehabilitación.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750805121/guantes2_xpn9dt.jpg",
+    "id": "3"
   },
   {
-    "id": 4,
-    "nombre": "Bandas elasticas",
-    "precio": 95,
-    "stock": 20,
-    "imagen": "/img/guantes2.jpg",
-    "categoria": "accesorios",
-    "cantidad": 0,
-    "descripcion": "Bandas elásticas de diferentes niveles de resistencia. Excelente para entrenamiento funcional y rehabilitación."
-  },
-  {
-    "id": 5,
-    "nombre": "Rodilleras",
-    "precio": 50,
-    "stock": 20,
-    "imagen": "/img/rodilleras.jpg",
-    "categoria": "accesorios",
-    "cantidad": 0,
-    "descripcion": "Rodilleras con soporte de compresión. Protegen tus articulaciones durante ejercicios intensos."
-  },
-  {
-    "id": 6,
-    "nombre": "Guantes",
-    "precio": 150,
-    "stock": 30,
-    "imagen": "/img/guantes1.jpg",
-    "categoria": "accesorios",
-    "cantidad": 0,
-    "descripcion": "Guantes deportivos con refuerzo en palma. Previenen ampollas y mejoran el agarre en pesas y barras."
-  },
-  {
-    "id": 7,
     "nombre": "Colchonetas",
-    "precio": 80,
-    "stock": 20,
-    "imagen": "/img/colchonetas.jpg",
-    "categoria": "accesorios",
-    "cantidad": 0,
-    "descripcion": "Colchoneta antideslizante de alta densidad. Ideal para yoga, pilates o ejercicios en el suelo."
+    "precio": 4600,
+    "descripcion": "Colchoneta antideslizante, acolchada y fácil de transportar. Ideal para yoga, abdominales o estiramientos.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750804474/colchonetas_tujjgy.jpg",
+    "id": "4"
   },
   {
-    "id": 8,
-    "nombre": "Bicicleta Fija",
-    "precio": 9800,
-    "stock": 10,
-    "imagen": "/img/bicicletas.jpg",
-    "categoria": "maquinas",
-    "cantidad": 0,
-    "descripcion": "Bicicleta estática con resistencia ajustable y pantalla LCD. Perfecta para cardio en casa."
+    "nombre": "Barra Olímpica",
+    "precio": 66000,
+    "descripcion": "Barra olímpica profesional de 20 kg, con acabado cromado y agarre moleteado para mayor seguridad en cada levantamiento.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750804443/barra_nquy7o.jpg",
+    "id": "5"
   },
   {
-    "id": 9,
-    "nombre": "Eliptica",
-    "precio": 1200,
-    "stock": 8,
-    "imagen": "/img/eliptico.jpg",
-    "categoria": "maquinas",
-    "cantidad": 0,
-    "descripcion": "Máquina elíptica con monitor de ritmo cardíaco. Bajo impacto, ideal para entrenamiento aeróbico."
+    "nombre": "Rodillera",
+    "precio": 4500,
+    "descripcion": "Rodilleras deportivas con compresión ajustable para proteger tus articulaciones durante ejercicios exigentes.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750804518/rodilleras_ncyao5.jpg",
+    "id": "6"
   },
   {
-    "id": 10,
-    "nombre": "Cinta de Correr",
-    "precio": 15000,
-    "stock": 5,
-    "imagen": "/img/cinta1.jpg",
-    "categoria": "maquinas",
-    "cantidad": 0,
-    "descripcion": "Cinta de correr motorizada con inclinación automática. Panel digital multifunción y amortiguación avanzada."
+    "nombre": "Guantes",
+    "precio": 3500,
+    "descripcion": "Guantes de entrenamiento con refuerzo en la palma y ventilación, ideales para proteger tus manos y mejorar el agarre.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750804546/guantes1_c8x5hg.jpg",
+    "id": "7"
+  },
+  {
+    "nombre": "Bicicleta fija",
+    "precio": 130000,
+    "descripcion": "Bicicleta fija con resistencia ajustable y asiento ergonómico. Perfecta para entrenamiento cardiovascular en casa.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750805701/bicicletas_ch6v5r.jpg",
+    "id": "8"
+  },
+  {
+    "nombre": "Cinta de correr",
+    "precio": 120000,
+    "descripcion": "Cinta de correr plegable con múltiples niveles de inclinación, pantalla LCD y programas automáticos de entrenamiento.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750804493/cinta1_me1dq9.jpg",
+    "id": "9"
+  },
+  {
+    "nombre": "Elíptico",
+    "precio": 250000,
+    "descripcion": "Entrenador elíptico de bajo impacto con pantalla multifunción, ideal para trabajar piernas, brazos",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750804570/eliptico_uzz8ct.jpg",
+    "id": "10"
+  },
+  {
+    "nombre": "Discos Olímpicos",
+    "precio": 45000,
+    "descripcion": "descripcion 11",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750804529/discos_ipctad.jpg",
+    "id": "11",
+    "stock": "1",
+    "categoria": "pesas"
+  },
+  {
+    "nombre": "Set de máquinas",
+    "precio": 270000,
+    "descripcion": "Pack combinado para entrenamiento completo de fuerza y cardio, ideal para gimnasios.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897621/Set_de_peck_deck_bicicleta_fija_x1jhln.jpg",
+    "id": "12"
+  },
+  {
+    "nombre": "Shakers",
+    "precio": 1800,
+    "descripcion": "Botellas mezcladoras para suplementos y proteínas, con cierre hermético y diseño ergonómico.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897620/Shakers_pxfa13.jpg",
+    "id": "13"
+  },
+  {
+    "nombre": "Mancuernas bola",
+    "precio": 8000,
+    "descripcion": "Pesas esféricas recubiertas, perfectas para entrenamientos funcionales y de fuerza.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897609/Mancuernas_bola_jc4md5.jpg",
+    "id": "14"
+  },
+  {
+    "nombre": "Sillón de cuádriceps",
+    "precio": 490000,
+    "descripcion": "Máquina para ejercicios de extensión de pierna, enfocada en cuádriceps.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897621/Sill%C3%B3n_de_cuadriceps_cgndpw.jpg",
+    "id": "15"
+  },
+  {
+    "nombre": "Barra dorsalera",
+    "precio": 20000,
+    "descripcion": "Barra para poleas alta y baja, ideal para trabajar dorsales y espalda.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897603/Barra_dorsalera_recta_ejnxuc.jpg",
+    "id": "16"
+  },
+  {
+    "nombre": "Agarres de poleas",
+    "precio": 8500,
+    "descripcion": "Accesorios intercambiables para máquinas de poleas, permiten variedad de ejercicios.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897603/Agarres_de_poleas_j2d9wx.jpg",
+    "id": "17"
+  },
+  {
+    "nombre": "Set de mancuernas",
+    "precio": 500000,
+    "descripcion": "Colección completa de mancuernas con pesos variados para entrenamiento progresivo.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897619/Set_de_mancuernas_ucvmov.jpg",
+    "id": "18"
+  },
+  {
+    "nombre": "Barras romboides",
+    "precio": 38000,
+    "descripcion": "Barras con forma ergonómica para trabajar espalda y brazos con polea.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897619/Barras_romboides_frqqgj.jpg",
+    "id": "19"
+  },
+  {
+    "nombre": "Pisos de caucho",
+    "precio": 700000,
+    "descripcion": " Superficie resistente, antideslizante y protectora para zonas de entrenamiento.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897615/Pisos_de_goma-caucho_neyq6e.jpg",
+    "id": "20"
+  },
+  {
+    "nombre": "Pelota con peso",
+    "precio": 2400,
+    "descripcion": "Balón medicinal de peso variable para entrenamiento funcional y rehabilitación.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897615/Pelota_con_peso_xj0yjt.jpg",
+    "id": "21"
+  },
+  {
+    "nombre": "Rueda para abdominales",
+    "precio": 22000,
+    "descripcion": " Accesorio simple pero eficaz para fortalecer el core y zona abdominal.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897615/Rueda_para_abdominales_jk7jsm.jpg",
+    "id": "22"
+  },
+  {
+    "nombre": "Máquina Hip-Thrust",
+    "precio": 250000,
+    "descripcion": "Máquina especializada para glúteos, cómoda y segura para cargas pesadas.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897612/Hip-Thrust_r6nbj1.jpg",
+    "id": "23"
+  },
+  {
+    "nombre": "Peck Deck",
+    "precio": 240000,
+    "descripcion": " Máquina de aislamiento para pectorales, permite movimiento controlado y eficaz.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897612/Peck-deck_uzzjo1.jpg",
+    "id": "24"
+  },
+  {
+    "nombre": "Máquina Hack",
+    "precio": 300000,
+    "descripcion": "Máquina inclinada para trabajo de piernas y glúteos con respaldo seguro.",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897607/Hack_jcvbpd.jpg",
+    "id": "25"
+  },
+  {
+    "nombre": "Banco Multiangular",
+    "precio": "70000",
+    "descripcion": "Banco regulable para trabajar desde distintos ángulos pecho, hombros y brazos.\n\n",
+    "id": "26",
+    "stock": "3",
+    "imagen": "https://res.cloudinary.com/dvwpwou2g/image/upload/v1750897603/Banco_multiangular_tvttjq.jpg",
+    "categoria": "máquina"
   }
 ]

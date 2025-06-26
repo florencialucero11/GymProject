@@ -9,17 +9,17 @@ const DetallesProductos = () => {
   const [producto, setProducto] = useState(null);
 
   useEffect(() => {
-    const encontrado = productos.find((item) => item.id === parseInt(id));
+    const encontrado = productos.find((item) => item.id ===id);
     setProducto(encontrado);
   }, [id, productos]);
 
   // Calcular la cantidad del producto en el carrito
-  const cantidadEnCarrito = cart.filter(item => item.id === parseInt(id)).length;
+  const cantidadEnCarrito = cart.filter(item => item.id === id).length;
 
   if (!producto) {
     return (
       <div className="text-gray-900 text-center mt-20 text-4xl">
-        Producto no encontrado...
+        Cargando Producto...
       </div>
     );
   }
