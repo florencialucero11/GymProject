@@ -24,7 +24,7 @@ const Productos = ({ producto }) => {
       
       <div className="flex-1 space-y-2">
         <h3 className="text-xl font-semibold text-violet-100">{producto.nombre}</h3>
-        <p className="text-violet-300 font-semibold text-lg">${producto.precio}</p>
+        <p className="text-white font-semibold text-lg">${producto.precio}</p>
         {/** <p className="text-sm text-slate-200">{producto.descripcion}</p> **/}
       </div>
 
@@ -33,14 +33,14 @@ const Productos = ({ producto }) => {
         <div className="flex items-center justify-between mb-3">
           <button
             onClick={decrease}
-            className="bg-purple-700 hover:bg-purple-800 px-3 py-1 text-white rounded-md font-bold"
+            className="w-10 h-10 bg-purple-700 hover:bg-purple-800 text-white text-xl rounded-full shadow-md"
           >
             -
           </button>
           <span className="text-lg font-medium text-violet-100">{cantidad}</span> 
           <button
             onClick={increase}
-            className="bg-purple-700 hover:bg-purple-800 px-3 py-1 text-white rounded-md font-bold"
+            className="w-10 h-10 bg-purple-700 hover:bg-purple-800 text-white text-xl rounded-full shadow-md"
           >
             +
           </button>
