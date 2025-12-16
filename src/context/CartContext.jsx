@@ -27,9 +27,8 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
   async function cargarProductos() {
     try {
-      const response = await fetch(
-        "https://68556b276a6ef0ed66326e0d.mockapi.io/Productos"
-      );
+      const response = await fetch("https://tu-backend.vercel.app/products")
+
 
       const data = await response.json();
 
