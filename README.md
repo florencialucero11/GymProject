@@ -10,3 +10,17 @@ Se trata de una tienda online, donde puedes cargar los productos al carrito, pue
 # GymProject
 E-commerce Fitnes
 >>>>>>> 6ac1c3210f30a5e2ddc2b85ad3d2eae215599f8f
+
+## Gym Tienda – Backend
+
+Backend desarrollado con Express.
+Incluye:
+- Autenticación JWT
+- Roles (admin)
+- CRUD de productos
+- Rutas protegidas
+
+### Tecnologías
+- Node.js
+- Express
+- JWT

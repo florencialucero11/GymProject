@@ -19,32 +19,33 @@ export const CartProvider = ({ children }) => {
         return savedCart ? JSON.parse(savedCart) : [];
     });
 
-
-
-
     const [productos, setProductos] = useState([]);
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(false);
     const [isAuthenticated, setIsAuth] = useState(false);
 
     useEffect(() => {
-        fetch("/data/data.json")
-            .then(respuesta => respuesta.json())
-            .then(datos =>
-                setTimeout(() => {
-                    setProductos(datos)
-                    setCargando(false);
-                }, 2000) // Simula un retraso de 2 segundos para la carga;
-            )
-            .catch(error => {
-                console.log("Error al cargar los productos:", error);
-                setCargando(false);
-                setError(true);
-            })
-            .finally(() => {
-                localStorage.setItem("cart", JSON.stringify(cart));
-            });
-    }, []);
+  async function cargarProductos() {
+    try {
+      const response = await fetch(
+        "https://68556b276a6ef0ed66326e0d.mockapi.io/Productos"
+      );
+
+      const data = await response.json();
+
+      setProductos(data);
+    } catch (error) {
+      console.error("Error al cargar productos:", error);
+      setError(true);
+    } finally {
+      setCargando(false);
+    }
+  }
+
+  cargarProductos();
+}, []);
+
+
 
     const handleAddToCart = (product, cantidad = 1) => {
     const productInCart = cart.find((item) => item.id === product.id);

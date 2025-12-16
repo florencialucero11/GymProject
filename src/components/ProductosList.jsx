@@ -1,9 +1,10 @@
+
 import React, { useContext, useState, useEffect } from 'react';
 import Productos from './Productos';
-import { AdminContext } from '../context/AdminContext';
+import { CartContext } from '../context/CartContext';
 
 const ProductosList = () => {
-  const { productos } = useContext(AdminContext);
+  const { productos } = useContext(CartContext);
   const [busqueda, setBusqueda] = useState('');
   const [productosFiltrados, setProductosFiltrados] = useState([]);
 
